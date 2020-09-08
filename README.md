@@ -1,11 +1,6 @@
 Payload to Postman Collection JSON NodeRED Node
 =====================
 
-postman Wrapper 
-
-https://github.com/tkrkt/postman
-
-
 Install
 -------
 
