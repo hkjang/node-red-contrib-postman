@@ -1,8 +1,38 @@
+<script type="text/x-red" data-template-name="postman">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-apiBaseUrl"><i class="icon-tag"></i> apiBaseUrl</label>
+        <input type="text" id="node-input-apiBaseUrl" placeholder=" apiBaseUrl" style=" vertical-align: top;">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-collectionName"><i class="icon-tag"></i> CollectionName</label>
+        <input type="text" id="node-input-collectionName" placeholder=" Collection Name" style=" vertical-align: top;">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-collectionVersion"><i class="icon-tag"></i> CollectionVersion</label>
+        <input type="text" id="node-input-collectionVersion" placeholder=" 0.0.1" style=" vertical-align: top;">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="postman">
+    <p><b>msg.payload</b> to postman collection json.</p>
+    <p><b>msg.payload</b> property, overriding the Collection JSON. </p>
+</script>
+
 <script type="text/javascript">
     RED.nodes.registerType('postman',{
         category: 'function',
         defaults: {
-            name: {value: "Payload to Postman Collection JSON"}
+            name: {value: "Payload to Postman Collection JSON"},
+            apiBaseUrl: {value:"", required:false},
+            collectionName: {value:"", required:false}
+            collectionVersion: {value:"", required:false}
         },
         inputs:1,
         outputs:1,
@@ -16,16 +46,4 @@
             return this.name?"node_label_italic":"";
         }
     });
-</script>
-
-<script type="text/x-red" data-template-name="postman">
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
-</script>
-
-<script type="text/x-red" data-help-name="postman">
-    <p><b>msg.payload</b> to postman collection json.</p>
-    <p><b>msg.payload</b> property, overriding the Collection JSON. </p>
 </script>
