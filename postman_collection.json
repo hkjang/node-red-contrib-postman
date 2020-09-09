@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "510581f0-373d-40e9-a1a3-b540bf76f9a3",
+		"name": "postman node-red api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "postman create collection",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"apiBaseUrl\" : \"http://localhost/api\",\r\n    \"collectionName\": \"postman collection\",\r\n    \"version\": \"0.0.2\",\r\n    \"items\" : [{\r\n         \"id\": \"set-utc-time-now\",\r\n         \"name\": \"Set the current time in UTC\",\r\n         \"description\": \"Set the current time in UTC\",\r\n         \"request\": {\r\n             \"url\":\"{{apiBaseUrl}}/utc/settime\",\r\n             \"method\": \"Post\",\r\n             \"body\":{\r\n                 \"mode\": \"urlencoded\",\r\n                 \"urlencoded\": [\r\n                    {\r\n                     \"key\": \"nation\",\r\n                     \"value\": \"ko-kr\",\r\n                     \"description\" : \"nation code\"\r\n                    },\r\n                    {\r\n                     \"key\": \"nation2\",\r\n                     \"value\": \"ko-kr\"\r\n                    }\r\n                ]\r\n             }\r\n         }\r\n        },\r\n        {\r\n         \"id\": \"get-utc-time-now\",\r\n         \"name\": \"Get the current time in UTC\",\r\n         \"description\": \"Get the current time in UTC\",\r\n         \"request\": \"{{apiBaseUrl}}/utc/now?a=a\"\r\n        }\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1880/postman/create/collection",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1880",
+					"path": [
+						"postman",
+						"create",
+						"collection"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
