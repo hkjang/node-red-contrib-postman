@@ -1,8 +1,8 @@
 [
   {
-    "id": "5632e67b.ef9268",
+    "id": "9e496dd1.0d35a",
     "type": "inject",
-    "z": "f62f004c.8d6dd",
+    "z": "b541d855.b457b8",
     "name": "",
     "props": [
       {
@@ -24,16 +24,16 @@
     "y": 40,
     "wires": [
       [
-        "9cedc1b4.c5e61"
+        "353f9c1b.6e6a84"
       ]
     ]
   },
   {
-    "id": "9cedc1b4.c5e61",
+    "id": "353f9c1b.6e6a84",
     "type": "function",
-    "z": "f62f004c.8d6dd",
+    "z": "b541d855.b457b8",
     "name": "set payload",
-    "func": "msg = {};\nmsg.payload = [];\nmsg.payload[0] = {\n         id: 'utc-time-now',\n         name: 'Get the current time in UTC',\n         request: '{{apiBaseUrl}}/utc/now'\n}\n\nmsg.payload[1] = {\n         id: 'utc-time-now9',\n         name: 'Get the current time in UTC9',\n         request: '{{apiBaseUrl}}/utc/now9'\n}\n \nreturn msg;",
+    "func": "msg = {};\nmsg.payload = [];\n\nmsg.payload[0] = {\n         id: 'set-utc-time-now',\n         name: 'Set the current time in UTC',\n         description: 'Set the current time in UTC',\n         request: {\n             url:'{{apiBaseUrl}}/utc/settime',\n             method: 'Post',\n             body:{\n                 mode: 'formdata',\n                 formdata: [\n                    {\n                     key: 'nation',\n                     value: 'ko-kr',\n                     description : 'nation code'\n                    },\n                    {\n                     key: 'nation2',\n                     value: 'ko-kr',\n                    }\n                ]\n             }\n         }\n}\n\nmsg.payload[1] = {\n         id: 'get-utc-time-now',\n         name: 'Get the current time in UTC',\n         description: 'Get the current time in UTC',\n         request: '{{apiBaseUrl}}/utc/now?a=a'\n}\n \nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -42,14 +42,14 @@
     "y": 40,
     "wires": [
       [
-        "19334026.02666"
+        "d78f90f9.d042e"
       ]
     ]
   },
   {
-    "id": "3f8dfec9.1ef702",
+    "id": "995c6264.bc2fd",
     "type": "debug",
-    "z": "f62f004c.8d6dd",
+    "z": "b541d855.b457b8",
     "name": "",
     "active": true,
     "tosidebar": true,
@@ -63,9 +63,9 @@
     "wires": []
   },
   {
-    "id": "f9ab1202.d9d66",
+    "id": "1711ed77.cd7843",
     "type": "file",
-    "z": "f62f004c.8d6dd",
+    "z": "b541d855.b457b8",
     "name": "",
     "filename": "/download/collection.json",
     "appendNewline": true,
@@ -76,14 +76,14 @@
     "y": 80,
     "wires": [
       [
-        "fd869677.42ac88"
+        "b6bd246c.fe1248"
       ]
     ]
   },
   {
-    "id": "fd869677.42ac88",
+    "id": "b6bd246c.fe1248",
     "type": "debug",
-    "z": "f62f004c.8d6dd",
+    "z": "b541d855.b457b8",
     "name": "",
     "active": true,
     "tosidebar": true,
@@ -98,9 +98,9 @@
     "wires": []
   },
   {
-    "id": "19334026.02666",
+    "id": "d78f90f9.d042e",
     "type": "postman",
-    "z": "f62f004c.8d6dd",
+    "z": "b541d855.b457b8",
     "name": "Payload to Postman Collection JSON",
     "apiBaseUrl": "http://localhost",
     "collectionName": "xmysql collection",
@@ -109,8 +109,8 @@
     "y": 40,
     "wires": [
       [
-        "3f8dfec9.1ef702",
-        "f9ab1202.d9d66"
+        "995c6264.bc2fd",
+        "1711ed77.cd7843"
       ]
     ]
   }
